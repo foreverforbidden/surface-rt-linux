@@ -1,0 +1,28 @@
+name: Boot problem
+description: A kernel did not boot, or the fallback did not work
+labels: [boot]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what the screen showed, and which kernel booted in the end
+    validations:
+      required: true
+  - type: textarea
+    id: startup
+    attributes:
+      label: /boot/startup.nsh
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: boot
+    attributes:
+      label: Files on /boot
+      description: Output of `ls -l /boot`
+      render: text
+  - type: input
+    id: kernels
+    attributes:
+      label: Old and new kernel releases

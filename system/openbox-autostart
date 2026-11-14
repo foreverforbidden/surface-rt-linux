@@ -1,0 +1,9 @@
+# Openbox autostart for the kiosk user. Install: cp system/openbox-autostart ~/.config/openbox/autostart
+
+# keep the screen awake; the dashboard's Screen off tile handles blanking
+xset -dpms
+xset s off
+xset s noblank
+
+# touch dashboard (final line must end with &)
+"$HOME/app/run.sh" >"$HOME/app.log" 2>&1 &

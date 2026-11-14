@@ -1,0 +1,16 @@
+# dhcpcd sources this as root on every interface event.
+# shellcheck disable=SC2154  # dhcpcd sets $interface and $reason
+# Install: sudo install -m 644 system/dhcpcd.exit-hook /etc/dhcpcd.exit-hook
+#
+# Keep Wi-Fi power save off. With it on, the mwifiex chip (mlan0) drops ARP
+# broadcasts, so other machines randomly can't reach the tablet over IPv4
+# (its .local name stops answering; ssh over IPv6 link-local still works).
+# The driver turns power save back on whenever the link comes up again, so
+# this runs on each (re)connect, not only at boot.
+if [ "$interface" = "mlan0" ]; then
+	case "$reason" in
+	CARRIER|STATIC|BOUND|REBOOT|RENEW|REBIND|INFORM)
+		/sbin/iw dev mlan0 set power_save off 2>/dev/null
+		;;
+	esac
+fi

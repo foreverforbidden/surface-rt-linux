@@ -1,0 +1,21 @@
+{
+  "columns": 4,
+  "modules": [
+    "clock",
+    "system",
+    "airplay"
+  ],
+  "airplay": {
+    "name": "Surface RT",
+    "args": [
+      "-vd",
+      "avdec_h264 thread-type=frame max-threads=4 ! queue max-size-buffers=3",
+      "-vc",
+      "videoconvert n-threads=2 ! queue max-size-buffers=3",
+      "-vsync",
+      "no",
+      "-srgb",
+      "no"
+    ]
+  }
+}

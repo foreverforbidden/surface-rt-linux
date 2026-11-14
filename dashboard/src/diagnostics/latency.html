@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AirPlay latency check</title>
+<style>
+  html,body { margin:0; height:100%; overflow:hidden; background:#10151b; color:white;
+              font:32px system-ui,sans-serif; }
+  main { padding:6vw; }
+  #clock { font: bold 9vw monospace; font-variant-numeric:tabular-nums; }
+  p { max-width:48em; font-size:24px; color:#b7c2cf; }
+  #bar { width:12vw; height:10vh; background:#60b5ff; position:absolute; bottom:10vh; }
+</style>
+<main>
+  <h1>AirPlay latency check</h1>
+  <div id="clock"></div>
+  <p>Mirror this window. Film both displays together at 120 fps or higher.
+     In a recorded frame, subtract the tablet’s displayed time from the Mac’s.
+     Sample at least 20 frames, then repeat after five minutes of motion.</p>
+  <p>This measures screen-to-screen delay. Also try typing and scrolling in a
+     separate-display session to judge everyday responsiveness.</p>
+</main>
+<div id="bar"></div>
+<script>
+const clock = document.getElementById('clock');
+const bar = document.getElementById('bar');
+function tick(t) {
+  clock.textContent = (t / 1000).toFixed(3).padStart(10, '0');
+  bar.style.transform = `translateX(${(Math.sin(t / 450) + 1) * innerWidth * .44}px)`;
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+</script>

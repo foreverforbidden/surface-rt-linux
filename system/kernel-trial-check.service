@@ -1,0 +1,12 @@
+[Unit]
+Description=Reboot to the old kernel if a trial boot of the new one has no network
+DefaultDependencies=no
+IgnoreOnIsolate=yes
+ConditionPathExists=/etc/kernel-trial
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/kernel-trial-check.sh
+
+[Install]
+WantedBy=sysinit.target

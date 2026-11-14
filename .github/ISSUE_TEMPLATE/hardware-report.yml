@@ -1,0 +1,42 @@
+name: Hardware report
+description: Tell us what worked and what did not on your Surface RT
+labels: [hardware-report]
+body:
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Surface RT or Surface 2, and anything special (Type Cover model, SD card, battery state)
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: Kernel
+      description: Output of `uname -r`, and whether you used a release or your own build
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution
+      description: For example Raspberry Pi OS 11 armhf, postmarketOS
+  - type: textarea
+    id: works
+    attributes:
+      label: What works
+      description: For example Wi-Fi, sound, touch, battery, cpufreq, reboot, poweroff, cameras, Bluetooth, HDMI
+  - type: textarea
+    id: broken
+    attributes:
+      label: What does not work
+  - type: textarea
+    id: untested
+    attributes:
+      label: Not tested
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: "`dmesg --level=err,warn`, `systemctl --failed`"
+      render: text

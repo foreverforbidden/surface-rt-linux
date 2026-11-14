@@ -1,0 +1,48 @@
+{
+  "kind": "live_process_observation",
+  "pid": 3104,
+  "outcome": "receiver_exited",
+  "observed_s": 60.1,
+  "resolution": [
+    "1280.000000",
+    "720.000000"
+  ],
+  "samples": [
+    {
+      "elapsed_s": 10,
+      "rss_kib": 57104,
+      "cpu_percent": 186.2
+    },
+    {
+      "elapsed_s": 20,
+      "rss_kib": 58308,
+      "cpu_percent": 189
+    },
+    {
+      "elapsed_s": 30,
+      "rss_kib": 57224,
+      "cpu_percent": 192.8
+    },
+    {
+      "elapsed_s": 40,
+      "rss_kib": 57504,
+      "cpu_percent": 187.3
+    },
+    {
+      "elapsed_s": 50.1,
+      "rss_kib": 58676,
+      "cpu_percent": 180.9
+    }
+  ],
+  "errors": [],
+  "cpu_median_percent": 187.3,
+  "cpu_max_percent": 192.8,
+  "rss_min_kib": 57104,
+  "rss_max_kib": 58676,
+  "date": "2026-11-14",
+  "user_feedback": {
+    "responsiveness": "Noticeably more responsive",
+    "touch_controls": "Tap-to-reveal, Hide controls and Exit work"
+  },
+  "note": "The intended five-minute observation ended after 60 seconds when the user tested Exit. No screen-to-screen latency or live FPS was measured."
+}

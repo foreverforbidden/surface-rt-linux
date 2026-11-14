@@ -1,0 +1,743 @@
+/* Dark, flat, no transitions: every animation is a CPU redraw on this tablet.
+   Palette: ground #0e1115, cards #171c22, raised #222932, accent #7fb3e3.
+   Buttons stay big (60 px and up): the user wants everything easy to hit. */
+* {
+  transition: none;
+  animation: none;
+}
+
+window {
+  background-color: #0e1115;
+  color: #e8ecf0;
+  font-family: Inter, "DejaVu Sans", sans-serif;
+}
+
+button {
+  background-image: none;
+  background-color: #222932;
+  color: #e8ecf0;
+  border: none;
+  border-radius: 16px;
+  box-shadow: none;
+  text-shadow: none;
+  min-height: 60px;
+  font-size: 18px;
+}
+
+button:active {
+  background-color: #3a4552;
+}
+
+button.danger {
+  background-color: #5a2a2a;
+}
+
+button.primary {
+  background-color: #7fb3e3;
+  color: #0e1115;
+  font-weight: 600;
+  min-height: 64px;
+  border-radius: 18px;
+}
+
+button.primary:active {
+  background-color: #a9cdee;
+}
+
+/* ---- sliders ---------------------------------------------------------------- */
+
+scale trough {
+  min-height: 10px;
+  border-radius: 5px;
+  background-color: #222932;
+}
+
+scale highlight {
+  background-color: #7fb3e3;
+  border: none;
+  border-radius: 5px;
+}
+
+scale slider {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 22px;
+  background-image: none;
+  background-color: #e8ecf0;
+  border: none;
+  box-shadow: none;
+}
+
+/* big fill bars: drag anywhere on the bar */
+scale.big-bar trough {
+  min-height: 60px;
+  border: none;
+  border-radius: 18px;
+}
+
+scale.big-bar:focus trough,
+scale.big-bar trough:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+scale.big-bar.vertical trough {
+  min-width: 72px;
+  min-height: 0;
+}
+
+scale.big-bar highlight {
+  background-color: #e8ecf0;
+  border-radius: 18px;
+}
+
+scale.big-bar slider {
+  min-width: 20px;
+  min-height: 20px;
+  background-color: transparent;
+}
+
+levelbar.meter trough {
+  min-height: 8px;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  background-color: #2c343e;
+}
+
+levelbar.meter block.filled {
+  border: none;
+  border-radius: 4px;
+  background-color: #e8ecf0;
+}
+
+levelbar.meter block.empty {
+  border: none;
+  background-color: transparent;
+}
+
+/* ---- the shell: side menu and pages ----------------------------------------- */
+
+.shell {
+  background-color: #0e1115;
+}
+
+.rail {
+  background-color: #131820;
+  border-right: 1px solid #1f262e;
+  padding: 18px 12px;
+}
+
+button.rail-btn {
+  background-color: transparent;
+  min-width: 88px;
+  min-height: 88px;
+  border-radius: 22px;
+  padding: 0;
+}
+
+button.rail-btn.active {
+  background-color: rgba(127, 179, 227, 0.14);
+}
+
+button.rail-btn:active {
+  background-color: #222932;
+}
+
+.rail-label {
+  font-size: 13px;
+  color: #aeb8c2;
+}
+
+button.rail-btn.active .rail-label {
+  color: #7fb3e3;
+  font-weight: 600;
+}
+
+button.rail-sleep {
+  background-color: #000000;
+}
+
+.page {
+  padding: 24px 28px;
+}
+
+.page-heading {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+/* segmented tabs (Clock page) */
+.seg {
+  background-color: #171c22;
+  border-radius: 30px;
+  padding: 4px;
+}
+
+button.seg-btn {
+  background-color: transparent;
+  color: #aeb8c2;
+  min-height: 56px;
+  padding: 0 30px;
+  border-radius: 28px;
+  font-size: 17px;
+}
+
+button.seg-btn.active {
+  background-color: #e8ecf0;
+  color: #0e1115;
+  font-weight: 600;
+}
+
+/* ---- Home: header ------------------------------------------------------------- */
+
+.home {
+  padding: 18px 28px 24px;
+}
+
+.home-date {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+button.status-chip {
+  background-color: transparent;
+  padding: 0 12px;
+}
+
+.home-health {
+  font-size: 16px;
+}
+
+.health-ok {
+  color: #5fc48c;
+}
+
+.health-warn {
+  color: #e8a86b;
+}
+
+.health-bad {
+  color: #e87b7b;
+}
+
+.home-status {
+  font-size: 16px;
+  color: #9aa5b1;
+}
+
+button.pill {
+  background-color: #171c22;
+  min-height: 60px;
+  padding: 0 26px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+button.pill-accent {
+  background-color: #7fb3e3;
+  color: #0e1115;
+  font-weight: 600;
+  padding: 0 32px;
+}
+
+button.page-dot-btn {
+  background-color: transparent;
+  min-width: 44px;
+  padding: 0;
+}
+
+.page-dot {
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 5px;
+  background-color: #3a4552;
+}
+
+.page-dot.active {
+  min-width: 26px;
+  background-color: #e8ecf0;
+}
+
+/* ---- Home: widgets ------------------------------------------------------------ */
+
+.widget {
+  background-color: #171c22;
+  border-radius: 22px;
+}
+
+.widget-body {
+  padding: 20px 22px;
+}
+
+.widget.editing {
+  border: 2px dashed #3a4552;
+}
+
+.widget-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4ccd4;
+}
+
+.widget-sub {
+  font-size: 14px;
+  color: #9aa5b1;
+}
+
+.clock-w-time-S {
+  font-size: 66px;
+  font-weight: 200;
+}
+
+.clock-w-time-M {
+  font-size: 116px;
+  font-weight: 200;
+}
+
+.clock-w-time-L {
+  font-size: 160px;
+  font-weight: 200;
+}
+
+.clock-w-date {
+  font-size: 20px;
+  font-weight: 300;
+  color: #9aa5b1;
+}
+
+.clock-w-city {
+  font-size: 14px;
+  color: #9aa5b1;
+}
+
+.clock-w-city-time {
+  font-size: 24px;
+}
+
+.clock-w-chip {
+  background-color: rgba(127, 179, 227, 0.14);
+  border-radius: 24px;
+  padding: 10px 18px;
+}
+
+.clock-w-chip-text,
+.clock-w-countdown {
+  font-size: 19px;
+  font-weight: 600;
+  color: #7fb3e3;
+}
+
+button.clock-w-preset {
+  font-size: 24px;
+  font-weight: 500;
+  min-height: 60px;
+}
+
+.sys-w-health {
+  font-size: 20px;
+}
+
+.sys-w-value {
+  font-size: 15px;
+}
+
+.airplay-w-name {
+  font-size: 26px;
+}
+
+button.screen-off {
+  background-color: #000000;
+  border: 1px solid #1f262e;
+  border-radius: 22px;
+  min-height: 0;
+}
+
+.screen-off-text {
+  font-size: 22px;
+}
+
+.screen-off-hint {
+  font-size: 14px;
+  color: #8792a0;
+}
+
+/* ---- Home: Edit mode and the Add sheet ------------------------------------------ */
+
+button.edit-chip {
+  background-color: #3a4552;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 30px;
+  padding: 0;
+}
+
+.edit-seg {
+  background-color: #0e1115;
+  border-radius: 32px;
+  padding: 4px;
+}
+
+button.edit-size {
+  background-color: transparent;
+  color: #aeb8c2;
+  min-width: 60px;
+  min-height: 56px;
+  border-radius: 28px;
+  padding: 0;
+  font-size: 17px;
+}
+
+button.edit-size.active {
+  background-color: #7fb3e3;
+  color: #0e1115;
+  font-weight: 600;
+}
+
+button.edit-empty {
+  background-color: transparent;
+  border: 2px dashed #2c343e;
+  border-radius: 22px;
+}
+
+.add-heading {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+button.add-item {
+  background-color: #171c22;
+  min-height: 100px;
+  border-radius: 22px;
+  padding: 0 24px;
+}
+
+.add-title {
+  font-size: 19px;
+  font-weight: 500;
+}
+
+/* ---- System page --------------------------------------------------------------- */
+
+.sys-panel {
+  background-color: #171c22;
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #9aa5b1;
+}
+
+.sys-key {
+  font-size: 18px;
+  color: #9aa5b1;
+}
+
+.sys-value {
+  font-size: 18px;
+}
+
+/* the rescue screen (rescue.py) still uses these */
+window.fix-overlay {
+  background-color: #0e1115;
+}
+
+.fix-heading {
+  font-size: 34px;
+}
+
+button.fix-close {
+  min-height: 64px;
+  min-width: 160px;
+  font-size: 22px;
+}
+
+/* ---- Screen off and AirPlay ------------------------------------------------------ */
+
+window.blackout {
+  background-color: #000000;
+}
+
+.airplay-tile-hint {
+  font-size: 15px;
+  color: #8792a0;
+}
+
+window.airplay-overlay {
+  background-color: #000000;
+}
+
+.airplay-heading {
+  font-size: 40px;
+}
+
+.airplay-help {
+  font-size: 20px;
+  color: #aab4bf;
+}
+
+.airplay-status {
+  font-size: 18px;
+  color: #7fb3e3;
+}
+
+button.airplay-stop {
+  background-color: #5a2a2a;
+  min-width: 260px;
+  min-height: 64px;
+  font-size: 22px;
+}
+
+window.airplay-controls {
+  background-color: #171c22;
+  border: 1px solid #44505e;
+  border-radius: 12px;
+}
+
+.airplay-controls button {
+  min-width: 220px;
+  min-height: 60px;
+  font-size: 22px;
+}
+
+/* ---- System: health line and the tap-to-fix view --------------------------- */
+
+.fix-ok {
+  color: #5fbf7f;
+}
+
+.fix-warn {
+  color: #e0b050;
+}
+
+.fix-bad {
+  color: #e5686d;
+}
+
+.fix-unknown {
+  color: #9aa5b1;
+}
+
+.rescue-heading {
+  font-size: 30px;
+  color: #e5686d;
+}
+
+.rescue-log {
+  font-family: monospace;
+  font-size: 12px;
+  color: #aab4bf;
+  background-color: #0a0d10;
+  padding: 10px;
+}
+
+button.rescue-retry {
+  background-color: #2f5f8f;
+}
+
+.fix-panel {
+  background-color: #171c22;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.fix-mark {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.fix-key,
+.fix-value {
+  font-size: 18px;
+}
+
+.fix-key {
+  color: #c8d0d8;
+}
+
+.fix-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #9aa5b1;
+}
+
+button.fix-btn {
+  min-height: 56px;
+  font-size: 18px;
+}
+
+button.fix-row-btn {
+  min-height: 48px;
+  min-width: 110px;
+  font-size: 16px;
+}
+
+.fix-status {
+  font-size: 18px;
+}
+
+/* ---- Clock: icon buttons, world clock, timers ------------------------------ */
+
+/* world clock */
+.clock-city {
+  background-color: #171c22;
+  border-radius: 18px;
+  padding: 16px 22px;
+}
+
+.clock-city-name {
+  font-size: 23px;
+}
+
+.clock-city-meta {
+  font-size: 16px;
+  color: #9aa5b1;
+}
+
+/* timers: the list */
+.clock-row {
+  background-color: #171c22;
+  border-radius: 16px;
+  padding: 10px 14px;
+}
+
+.clock-row-left {
+  font-size: 32px;
+}
+
+.clock-row-sub {
+  font-size: 15px;
+  color: #9aa5b1;
+}
+
+.clock-section {
+  font-size: 15px;
+  font-weight: bold;
+  color: #9aa5b1;
+  margin: 10px 4px 0 4px;
+}
+
+button.clock-edit {
+  background-color: transparent;
+  color: #7fb3e3;
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 16px;
+}
+
+button.clock-recent,
+button.clock-recent:active {
+  background-color: transparent;
+  min-height: 0;
+  padding: 0;
+}
+
+.clock-recent-time {
+  font-size: 44px;
+  font-weight: 300;
+  color: #c8d0d8;
+}
+
+button.clock-round,
+button.clock-play,
+button.clock-remove {
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 30px;
+  padding: 0;
+}
+
+button.clock-play {
+  background-color: #1f3d2a;
+}
+
+button.clock-play:active {
+  background-color: #2b5a3c;
+}
+
+button.clock-remove {
+  background-color: #e5484d;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 22px;
+}
+
+/* timers: wheels, pad, Start */
+.clock-unit {
+  font-size: 18px;
+  color: #9aa5b1;
+}
+
+.clock-colon {
+  font-size: 64px;
+  color: #9aa5b1;
+}
+
+button.clock-key {
+  padding: 0;
+  min-width: 84px;
+  min-height: 76px;
+  border-radius: 16px;
+  font-size: 30px;
+}
+
+button.clock-action {
+  min-width: 280px;
+  min-height: 72px;
+  border-radius: 36px;
+  font-size: 24px;
+}
+
+button.clock-go {
+  background-color: #2f9e55;
+  color: #ffffff;
+}
+
+button.clock-go:active {
+  background-color: #38b563;
+}
+
+button.clock-go:disabled {
+  color: #5b6672;
+  background-color: #171c22;
+}
+
+/* time's up */
+window.clock-alert {
+  background-color: #0e1115;
+}
+
+.clock-alert-heading {
+  font-size: 110px;
+  font-weight: 300;
+}
+
+.clock-alert-detail {
+  font-size: 30px;
+  color: #aab4bf;
+}
+
+button.clock-dismiss,
+button.clock-repeat {
+  min-width: 300px;
+  min-height: 96px;
+  border-radius: 48px;
+  font-size: 32px;
+}
+
+button.clock-dismiss {
+  background-color: #2f9e55;
+  color: #ffffff;
+}
+
+/* ---- Volume level bar (hardware buttons) ----------------------------------- */
+
+window.volume-hud {
+  background-color: #171c22;
+  border: 1px solid #44505e;  /* square: popups have no transparent corners without a compositor */
+}

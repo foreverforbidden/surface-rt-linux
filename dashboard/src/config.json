@@ -1,0 +1,23 @@
+{
+  "columns": 4,
+  "modules": [
+    "clock",
+    "system",
+    "airplay"
+  ],
+  "clock": {
+    "cities": [
+      ["Warsaw", "Europe/Warsaw", 52.23, 21.01],
+      ["Los Angeles", "America/Los_Angeles", 34.05, -118.24],
+      ["Chicago", "America/Chicago", 41.88, -87.63]
+    ],
+    "timers": [7, 10, 14, 20]
+  },
+  "airplay": {
+    "name": "Surface RT",
+    "resolution": "1280x720",
+    "fps": 30,
+    "args": [],
+    "decoder": "slice"
+  }
+}
