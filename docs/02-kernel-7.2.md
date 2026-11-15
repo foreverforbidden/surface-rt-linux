@@ -8,7 +8,11 @@ We use [nuno407/linux-surface-rt](https://github.com/nuno407/linux-surface-rt), 
 
 - Seven patches come from [libre-tegra](https://codeberg.org/libre-tegra/linux), the community Tegra tree that postmarketOS packages. They add the device trees, CPU bring-up, L2 cache and Type Cover support.
 - The others fix problems found on a real unit: reboot and power-off hangs, Wi-Fi scans with older firmware, CPU idle hangs, sound, cameras and Bluetooth wiring.
-- Each patch lists its origin in the repository's `PROVENANCE.md`.
+- Each patch lists its origin in the supplier's `surface-rt/PROVENANCE.md`.
+
+See [source provenance and CVE fix preservation](kernel-source-provenance.md) for
+the full commit, ordered patch checksums, overlay path and an offline verifier
+that applies all patches and checks that the CVE-2026-89632 source fix survives.
 
 Before we used it, we read all boot-critical and shared-code patches in full and scanned the rest. We found no binaries and no changes outside the drivers that the patches name. The tarball's sha256 matched kernel.org's signed `sha256sums.asc`.
 
