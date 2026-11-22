@@ -38,7 +38,7 @@ The full list, with kernel arguments and expected warnings, is in [docs/04-hardw
 ## Start here
 
 1. Your Surface RT must already boot Linux. The Open Surface RT project explains how to unlock Secure Boot and install a base system: [open-rt.gitbook.io](https://open-rt.gitbook.io/open-surfacert/get-started/linux). See [docs/01-start-here.md](docs/01-start-here.md).
-2. Get the kernel. Download it from [Releases](https://github.com/foreverforbidden/surface-rt-linux/releases), or build it yourself in about 30 minutes: [docs/02-kernel-7.2.md](docs/02-kernel-7.2.md).
+2. Get the kernel. Download the _prebuilt kernel_ from [Releases](https://github.com/foreverforbidden/surface-rt-linux/releases), or build it yourself in about 30 minutes: [docs/02-kernel-7.2.md](docs/02-kernel-7.2.md).
 3. Install it next to your current kernel and do one trial boot. If the new kernel fails, the next boot is the old one: [docs/03-safe-boot.md](docs/03-safe-boot.md).
 
 ```bash
